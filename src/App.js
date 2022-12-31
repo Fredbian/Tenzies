@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Die from './Die'
 
 export default function App() {
@@ -7,25 +7,24 @@ export default function App() {
 
     // create a random num function to return an array that hold 10 nums between 1-6
     function allNewDice() {
-        const array = []
+        const newDice = []
         for (let i = 0; i < 10; i++) {
-            array.push(Math.ceil(Math.random() * 6))
+            newDice.push({
+                value: Math.ceil(Math.random() * 6),
+                isHeld: false
+            })
         }
-         return(array)
+         return newDice
     }
 
     const handleClick = () => {
-        const array = []
-        for (let i = 0; i < 10; i++) {
-            array.push(Math.ceil(Math.random() * 6))
-        }
-         setDice(array)
+         setDice(allNewDice())
     }
     
 
     const die = dice.map((item, index) => {
         return (
-            <Die key={index} value={item} />
+            <Die key={index} value={item.value} isHeld={item.isHeld}/>
         )
     })
 

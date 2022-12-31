@@ -57,3 +57,7 @@ body {
 .btn:hover {
   cursor: pointer;
 }
+
+.die.held {
+  background: #59E391;
+}
