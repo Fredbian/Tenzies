@@ -6,7 +6,16 @@ export default function App() {
         <main>
             <div className="container">
                 <div className="game">
-                    <Die />
+                    <Die value="1"/>
+                    <Die value="9"/>
+                    <Die value="6"/>
+                    <Die value="1"/>
+                    <Die value="2"/>
+                    <Die value="3"/>
+                    <Die value="4"/>
+                    <Die value="6"/>
+                    <Die value="4"/>
+                    <Die value="4"/>
                 </div>
             </div>
         </main>

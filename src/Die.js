@@ -1,18 +1,7 @@
 import React from 'react'
 
-export default function Die() {
-    return (
-        <>
-            <div className='die'>1</div>
-            <div className='die'>1</div>
-            <div className='die'>1</div>
-            <div className='die'>1</div>
-            <div className='die'>1</div>
-            <div className='die'>1</div>
-            <div className='die'>1</div>
-            <div className='die'>1</div>
-            <div className='die'>1</div>
-            <div className='die'>1</div>
-        </>
+export default function Die(props) {
+    return (      
+            <div className='die'>{props.value}</div>            
     )
 }
