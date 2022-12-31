@@ -1,0 +1,25 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  width: 360px;
+  height: 400px;
+  background: rgba(11, 36, 52, 1);
+  margin: 0 auto;
+  margin-top: 45px;
+  align-items: center;     
+}
+
+.game {
+  width:320px;
+  height: 320px;
+  border-radius: 10px;
+  background: white;
+}
