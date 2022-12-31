@@ -43,3 +43,17 @@ body {
   font-size: 25px;
   box-shadow: 3px 3px 3px gray;
 }
+
+.btn {
+  margin: 20px auto;
+  width: 93px;
+  height: 34px;
+  background: rgba(80, 53, 255, 1);
+  border: 0px;
+  border-radius: 5px;
+  color: white;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
