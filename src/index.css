@@ -3,23 +3,43 @@
 }
 
 body {
+  display: flex;
+  justify-content: center;
   margin: 0;
+  background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
 }
 
 .container {
   display: flex;
   justify-content: center;
-  width: 360px;
+  width: 400px;
   height: 400px;
-  background: rgba(11, 36, 52, 1);
-  margin: 0 auto;
-  margin-top: 45px;
-  align-items: center;     
+  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+  align-items: center; 
+  margin-top: 50px;    
 }
 
 .game {
-  width:320px;
-  height: 320px;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  flex-wrap: wrap;
+  padding: 15px;
+  width:360px;
+  height: 360px;
   border-radius: 10px;
-  background: white;
+  background: rgb(226, 223, 223);
+}
+
+.die {
+  width: 36px;
+  height: 36px;
+  margin: 10px 15px;
+  background:rgba(255, 255, 255, 1);
+  border-radius: 5px;
+  text-align: center;
+  line-height: 36px;
+  font-weight: 700;
+  font-size: 25px;
+  box-shadow: 3px 3px 3px gray;
 }
