@@ -80,21 +80,26 @@ export default function App() {
         // }))
 
         // Option 2 --- use for loop
-        setDice(prevDice => {
-            const newArray =[]
-            for (let i = 0; i < prevDice.length; i++) {
-                if (prevDice[i].isHeld === true) {
-                    newArray.push(prevDice[i])
-                } else {
-                    newArray.push({
-                        value: Math.ceil(Math.random() * 6),
-                        isHeld: false,
-                        id: nanoid()
-                    })
+        if (!tenzies) {
+            setDice(prevDice => {
+                const newArray =[]
+                for (let i = 0; i < prevDice.length; i++) {
+                    if (prevDice[i].isHeld === true) {
+                        newArray.push(prevDice[i])
+                    } else {
+                        newArray.push({
+                            value: Math.ceil(Math.random() * 6),
+                            isHeld: false,
+                            id: nanoid()
+                        })
+                    }
                 }
-            }
-            return newArray
-        })
+                return newArray
+            })
+        } else {
+            setTenzies(false)
+            setDice(allNewDice())
+        }
     }
 
     function holdDice(id) {
@@ -135,8 +140,7 @@ export default function App() {
         )
     })
 
-
-
+    
     return (
         <main>
             {tenzies && <Confetti />}
