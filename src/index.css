@@ -5,6 +5,7 @@
 body {
   display: flex;
   justify-content: center;
+  font-family: sans-serif;
   margin: 0;
   background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
 }
@@ -12,11 +13,11 @@ body {
 .container {
   display: flex;
   justify-content: center;
-  width: 400px;
-  height: 400px;
+  width: 500px;
+  height: 500px;
   background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
   align-items: center; 
-  margin-top: 50px;    
+  margin-top: 30px;    
 }
 
 .game {
@@ -25,27 +26,27 @@ body {
   align-content: center;
   flex-wrap: wrap;
   padding: 15px;
-  width:360px;
-  height: 360px;
+  width:460px;
+  height: 460px;
   border-radius: 10px;
   background: rgb(226, 223, 223);
 }
 
 .die {
-  width: 36px;
-  height: 36px;
+  width: 46px;
+  height: 46px;
   margin: 10px 15px;
   background:rgba(255, 255, 255, 1);
   border-radius: 5px;
   text-align: center;
-  line-height: 36px;
+  line-height: 46px;
   font-weight: 700;
   font-size: 25px;
   box-shadow: 3px 3px 3px gray;
 }
 
 .btn {
-  margin: 20px auto;
+  margin: 30px auto;
   width: 93px;
   height: 34px;
   background: rgba(80, 53, 255, 1);
@@ -60,4 +61,14 @@ body {
 
 .die.held {
   background: #59E391;
+}
+
+.instructions {
+  font-size: 14px;
+  text-align: center;
+}
+
+.title {
+  margin: 0 auto;
+  text-align: center;
 }

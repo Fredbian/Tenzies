@@ -92,9 +92,10 @@ export default function App() {
 
     return (
         <main>
-            <h1></h1>
             <div className="container">
                 <div className="game">
+            <h1 className='title'>Tenzies</h1>
+            <p className='instructions'>Roll until all dice are the same. Click each die to freeze it at its current value between rolls</p>
                     {die}
                     <button className='btn' onClick={rollDice}>Roll</button>
                 </div>
