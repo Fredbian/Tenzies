@@ -1,10 +1,56 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Die from './Die'
 import { nanoid } from 'nanoid'
 
 export default function App() {
 
     const [dice, setDice] = useState(allNewDice())
+    const [tenzies, setTenzies] = useState(false)
+
+    // check win game conditions that every time dice changes
+    // Option 1 ---- use for loop
+    // useEffect(() => {
+    //     // check all is held
+    //     let allIsHeld = true
+    //     function checkAllIsHeld() {
+    //         for (let i = 0; i < dice.length; i++) {
+    //             if (dice[i].isHeld !== true) {
+    //                return allIsHeld = false
+    //             }
+    //         }
+    //     }
+    //     checkAllIsHeld()
+
+    //     //check all values are same
+    //     let allValueIsEqual = true
+    //     function checkAllValue() {
+    //         const firstValue = dice[0].value
+    //         for (let i = 0; i < dice.length; i++) {
+    //             if (dice[i].value !== firstValue) {
+    //                 return allValueIsEqual = false
+    //             }
+    //         }
+    //     }
+    //     checkAllValue()
+
+    //     if (allIsHeld && allValueIsEqual) {
+    //         setTenzies(true)
+    //         alert('You Win!')
+    //     }
+
+    // }, [dice])
+
+    //Option 2 ----- use every() array method
+    useEffect(() => {
+        const allIsHeld = dice.every((die) => die.isHeld === true)
+        const firstValue = dice[0].value
+        const allValueIsEqual = dice.every((die) => die.value === firstValue)
+        if (allIsHeld && allValueIsEqual) {
+            setTenzies(true)
+            console.log('You Win!')
+        }
+    }, [dice])
+
 
     // create a random num function to return an array that hold 10 nums between 1-6
     function allNewDice() {
@@ -21,7 +67,7 @@ export default function App() {
 
     // the function handle click on 'Roll' button
     const rollDice = () => {
-        // Option 1 --- use map() method
+        // Option 1 --- use map() array method
         // setDice(prevDice => prevDice.map((die) => {
         //     return die.isHeld ? 
         //         die :
@@ -71,7 +117,7 @@ export default function App() {
         //     return newArray
         // })
 
-        // Option 2 ------ use map() method
+        // Option 2 ------ use map() array method
         setDice(prevDice => prevDice.map((die) => {
             return die.id === id ?
                 {
