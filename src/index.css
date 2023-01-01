@@ -45,6 +45,10 @@ body {
   box-shadow: 3px 3px 3px gray;
 }
 
+.die:hover {
+  cursor: pointer;
+}
+
 .btn {
   margin: 30px auto;
   width: 93px;
