@@ -19,28 +19,67 @@ export default function App() {
         return newDice
     }
 
-    const handleClick = () => {
-        setDice(allNewDice())
-    }
-    
-    function holdDice(id) {
-        // console.log(id)
-        setDice(prevDice => {
-            const newArray = []
-            for (let i = 0; i < prevDice.length; i++) {
-                if (prevDice[i].id === id) {
-                    const updatedDice = {
-                        ...prevDice[i],
-                        isHeld: !prevDice[i].isHeld
+    // the function handle click on 'Roll' button
+    const rollDice = () => {
+        // Option 1 --- use map() method
+        // setDice(prevDice => prevDice.map((die) => {
+        //     return die.isHeld ? 
+        //         die :
+        //         {
+        //             value: Math.ceil(Math.random() * 6),
+        //             isHeld: false,
+        //             id: nanoid() 
+        //         }
+        // }))
 
-                    }
-                    newArray.push(updatedDice)
-                } else {
+        // Option 2 --- use for loop
+        setDice(prevDice => {
+            const newArray =[]
+            for (let i = 0; i < prevDice.length; i++) {
+                if (prevDice[i].isHeld === true) {
                     newArray.push(prevDice[i])
+                } else {
+                    newArray.push({
+                        value: Math.ceil(Math.random() * 6),
+                        isHeld: false,
+                        id: nanoid()
+                    })
                 }
             }
             return newArray
         })
+    }
+
+    function holdDice(id) {
+
+        // console.log(id)
+        // Option 1 ------ use for loop
+        // setDice(prevDice => {
+        //     const newArray = []
+        //     for (let i = 0; i < prevDice.length; i++) {
+        //         if (prevDice[i].id === id) {
+        //             const updatedDice = {
+        //                 ...prevDice[i],
+        //                 isHeld: !prevDice[i].isHeld
+
+        //             }
+        //             newArray.push(updatedDice)
+        //         } else {
+        //             newArray.push(prevDice[i])
+        //         }
+        //     }
+        //     return newArray
+        // })
+
+        // Option 2 ------ use map() method
+        setDice(prevDice => prevDice.map((die) => {
+            return die.id === id ?
+                {
+                    ...die,
+                    isHeld: !die.isHeld
+                } :
+                die
+        }))
     }
 
     const die = dice.map((item) => {
@@ -53,10 +92,11 @@ export default function App() {
 
     return (
         <main>
+            <h1></h1>
             <div className="container">
                 <div className="game">
                     {die}
-                    <button className='btn' onClick={handleClick}>Roll</button>
+                    <button className='btn' onClick={rollDice}>Roll</button>
                 </div>
             </div>
         </main>
