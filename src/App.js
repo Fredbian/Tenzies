@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Die from './Die'
+import { nanoid } from 'nanoid'
 
 export default function App() {
 
@@ -11,22 +12,43 @@ export default function App() {
         for (let i = 0; i < 10; i++) {
             newDice.push({
                 value: Math.ceil(Math.random() * 6),
-                isHeld: false
+                isHeld: false,
+                id: nanoid()
             })
         }
-         return newDice
+        return newDice
     }
 
     const handleClick = () => {
-         setDice(allNewDice())
+        setDice(allNewDice())
     }
     
+    function holdDice(id) {
+        // console.log(id)
+        setDice(prevDice => {
+            const newArray = []
+            for (let i = 0; i < prevDice.length; i++) {
+                if (prevDice[i].id === id) {
+                    const updatedDice = {
+                        ...prevDice[i],
+                        isHeld: !prevDice[i].isHeld
 
-    const die = dice.map((item, index) => {
+                    }
+                    newArray.push(updatedDice)
+                } else {
+                    newArray.push(prevDice[i])
+                }
+            }
+            return newArray
+        })
+    }
+
+    const die = dice.map((item) => {
         return (
-            <Die key={index} value={item.value} isHeld={item.isHeld}/>
+            <Die key={item.id} id={item.id} value={item.value} isHeld={item.isHeld} holdDice={holdDice} />
         )
     })
+
 
 
     return (
